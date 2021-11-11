@@ -8,6 +8,7 @@ const avatar = document.getElementById('avatar');
 const msg = document.getElementById('texto');
 const chatMessages = document.querySelector('.chat-messages');
 const mensajesContainer = document.getElementById('mensajesContainer');
+const celular = document.getElementById('celular');
 
 
 const socketIo = io();
@@ -33,7 +34,7 @@ chatForm.addEventListener('submit', (e) => {
     console.log('EMITIENDO SOCKET', data);
 
   //Emit Message to the server
-  socketIo.emit('newMessage', data);
+  socketIo.emit('newMessage', data, celular);
   userEmail.value = '';
   nombre.value = '';
   apellido.value = '';
